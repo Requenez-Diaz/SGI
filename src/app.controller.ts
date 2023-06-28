@@ -1,17 +1,18 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Post } from '@nestjs/common';
 import { AppService } from './app.service';
-import { get } from 'http';
+import { identity, sequenceEqual } from 'rxjs';
+
+import { ConfigService } from '@nestjs/config';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(
+    private readonly appService: AppService,
+    private readonly config: ConfigService,
+  ) {}
 
   @Get()
   getHello(): string {
-    return this.appService.getHello();
-  }
-  @Get()
-  getUser(): string[] {
-    return this.appService.getUser();
+    return this.config.get('API_KEY');
   }
 }
