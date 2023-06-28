@@ -4,7 +4,7 @@ import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { DatabaseModule } from './modules/database/database.module';
 import { AuthModule } from './modules/auth/auth.module';
-import { SecurityModule } from './modules/security/security.module';
+import { SeguridadModule } from './modules/seguridad/seguridad.module';
 
 @Module({
   imports: [
@@ -14,7 +14,7 @@ import { SecurityModule } from './modules/security/security.module';
     }),
     DatabaseModule,
     AuthModule,
-    SecurityModule,
+    SeguridadModule,
   ],
 
   controllers: [AppController],
