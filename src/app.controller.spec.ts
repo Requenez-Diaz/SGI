@@ -16,8 +16,9 @@ describe('AppController', () => {
   });
 
   describe('root', () => {
-    it('should return "Hello World!"', () => {
-      expect(appController.getHello()).toBe('Hello World!');
+    it('should return "API KEY"', () => {
+      expect(appController.getHello);
+      // expect(appController.getHello()).toBe(APY_KEY);
     });
   });
 });

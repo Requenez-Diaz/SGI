@@ -1,7 +1,8 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { UsersService } from '../service/users.service';
+import { usersDto } from '../dto/users.dto';
 
-@Controller('user')
+@Controller('users')
 export class UserController {
   constructor(private readonly userService: UsersService) {}
 
@@ -10,8 +11,8 @@ export class UserController {
     return this.userService.getUsers();
   }
 
-  // @Post()
-  // createdUsers(@Body() payload: Payload) {
-  //   return this.userService.createUsers(payload);
-  // }
+  @Post()
+  createdUsers(@Body() payload: usersDto) {
+    return this.userService.created(payload);
+  }
 }

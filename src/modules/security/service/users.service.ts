@@ -4,11 +4,10 @@ import { Injectable } from '@nestjs/common';
 export class UsersService {
   users: any[] = [];
 
-  countItem() {
+  countItems() {
     return this.users.length;
   }
-
-  createUser(user: any) {
+  created(user: any) {
     this.users.push(user);
     return `users created with exit`;
   }
@@ -16,6 +15,7 @@ export class UsersService {
   getUsers() {
     return this.users;
   }
-
-  createUsers() {}
+  getUser(id: number) {
+    return this.users.find((user) => user.id === id);
+  }
 }
