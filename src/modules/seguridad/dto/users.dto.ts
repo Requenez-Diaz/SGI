@@ -4,17 +4,18 @@ import {
   IsNumber,
   IsOptional,
   IsString,
+  MaxLength,
   MinLength,
 } from 'class-validator';
 
 export class usersDto {
   @IsNumber()
   @IsOptional()
-  readonly id: number;
+  readonly id?: number;
 
   @IsString()
   @IsNotEmpty()
-  @MinLength(100)
+  @MaxLength(100)
   readonly name: string;
 
   @IsEmail()
